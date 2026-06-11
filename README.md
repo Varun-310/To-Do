@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 AI-Powered To-Do App
 
-## Getting Started
+A modern, full-stack To-Do application built with **Next.js**, **SQLite**, and integrated with **Google Gemini AI** to automatically break down your high-level tasks into detailed checklists of subtasks.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **🔒 User Authentication**: Secure Register & Login using JSON Web Tokens (JWT) and Bcrypt password hashing.
+- **📁 Persistent SQLite Database**: Store users, todos, and subtasks locally via `better-sqlite3`.
+- **⚡ AI Checklist Generator**: Simply prefix a task with `\ai ` to automatically generate a main task and a checklist of 3–7 subtasks using Google's Gemini AI.
+- **✅ Subtasks Checklist**: Interactive, toggleable subtasks for each main todo item.
+
+---
+
+## 🛠️ Setup & Running
+
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
+
+### 2. Configure Environment Variables
+Create a file named `.env.local` in the root of the project directory and define the following variables:
+
+```env
+JWT_SECRET=your_super_secret_jwt_key
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> [!TIP]
+> You can get a free Gemini API key from [Google AI Studio](https://aistudio.google.com/).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Install Dependencies
+Run the following command in the root folder to install the required packages:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run the App
+Launch the Next.js development server:
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) with your browser to register/login and access the dashboard.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤖 Using the AI Feature
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To use the AI checklist generator:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Locate the todo input box at the top of the dashboard.
+2. Type `\ai ` (case-insensitive) followed by your high-level goal or prompt.
+   
+   *Example prompts:*
+   - `\ai Plan a weekend trip to Paris`
+   - `\ai Learn React basics this week`
+   - `\ai Clean the kitchen and meal prep`
+3. Press **Enter** or click add.
+4. Gemini will automatically create a main task and populate it with a checklist of **3 to 7 structured, actionable subtasks**!
